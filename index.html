@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Tracker - Daily Schedule</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #8b5cf6;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+      min-height: 100vh;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .header {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .header p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .clock-badge {
+      background: rgba(139, 92, 246, 0.15);
+      color: #c084fc;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .status-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .status-icon {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .status-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--success);
+    }
+
+    .status-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 10px;
+    }
+
+    .class-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .class-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 16px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .class-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .class-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .class-time {
+      text-align: right;
+    }
+
+    .time-badge {
+      background: #334155;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .cycle-tag {
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-top: 4px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <h1 id="current-date">Friday, Sep 11</h1>
+        <p>PUP Open University • BAPROUMN</p>
+      </div>
+      <div class="clock-badge" id="live-clock">00:00:00 PM</div>
+    </div>
+
+    <!-- Status Card -->
+    <div class="status-card">
+      <div class="status-icon">🎉</div>
+      <div class="status-title">No Classes Scheduled Today</div>
+      <div class="status-sub">You're all clear for today! Prepare for tomorrow's synchronous sessions.</div>
+    </div>
+
+    <!-- Next Scheduled Session Section -->
+    <div class="section-title">Upcoming Synchronous Sessions (Tomorrow, Sep 12)</div>
+
+    <div class="class-list">
+      <div class="class-card">
+        <div class="class-info">
+          <h3>ADPR 201 — Basic Photography Applied in Advertising</h3>
+          <p>Prof. Christopher Andres</p>
+        </div>
+        <div class="class-time">
+          <span class="time-badge">08:15 AM - 09:00 AM</span>
+          <span class="cycle-tag">CYCLE 1</span>
+        </div>
+      </div>
+
+      <div class="class-card">
+        <div class="class-info">
+          <h3>COMM 002 — Communication and Media Theories</h3>
+          <p>Synchronous Session</p>
+        </div>
+        <div class="class-time">
+          <span class="time-badge">09:00 AM - 10:30 AM</span>
+          <span class="cycle-tag">CYCLE 1</span>
+        </div>
+      </div>
+
+      <div class="class-card">
+        <div class="class-info">
+          <h3>GEED 005 — Purposive Communication</h3>
+          <p>Synchronous Session</p>
+        </div>
+        <div class="class-time">
+          <span class="time-badge">10:30 AM - 12:00 PM</span>
+          <span class="cycle-tag">CYCLE 1</span>
+        </div>
+      </div>
+
+      <div class="class-card">
+        <div class="class-info">
+          <h3>ADPR 202 — Pitch Deck Writing & Presentation Skills</h3>
+          <p>Synchronous Session</p>
+        </div>
+        <div class="class-time">
+          <span class="time-badge">12:00 PM - 01:30 PM</span>
+          <span class="cycle-tag">CYCLE 1</span>
+        </div>
+      </div>
+
+      <div class="class-card">
+        <div class="class-info">
+          <h3>ADPR 204 — Multimedia Production</h3>
+          <p>Synchronous Session</p>
+        </div>
+        <div class="class-time">
+          <span class="time-badge">03:00 PM - 04:30 PM</span>
+          <span class="cycle-tag">CYCLE 2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      
+      // Update Clock
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById('live-clock').textContent = timeStr;
+
+      // Update Date Header
+      const options = { weekday: 'long', month: 'short', day: 'numeric' };
+      document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
